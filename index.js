@@ -51,7 +51,7 @@ const MINITEST_TEST_FILE_PATH_RE = new RegExp('\\(Minitest::Assertion\\)[^\/]*((
                         start_column: 0,
                         end_column: 0,
                         annotation_level: 'failure',
-                        message: `Junit test ${testcase.name} failed:\n ${testcase.failure.message}`,
+                        message: `Junit test ${testcase.name} failed at ${path}:\n ${testcase.failure.message}`,
                     });
                 }
 
@@ -83,7 +83,7 @@ const MINITEST_TEST_FILE_PATH_RE = new RegExp('\\(Minitest::Assertion\\)[^\/]*((
             start_column: 0,
             end_column: 0,
             annotation_level,
-            message: `Junit Results ran ${numTests} in ${testDuration} seconds ${numErrored} Errored, ${numFailed} Failed, ${numSkipped} Skipped`,
+            message: `Junit Results ran ${numTests} tests in ${testDuration} seconds. ${numErrored} Errored, ${numFailed} Failed, ${numSkipped} Skipped`,
         };
 
         const update_req = {
