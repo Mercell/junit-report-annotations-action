@@ -52,6 +52,7 @@ const MINITEST_TEST_FILE_PATH_RE = new RegExp('\\(Minitest::Assertion\\)[^\/]*((
                         end_column: 0,
                         annotation_level: 'failure',
                         message: `Junit test ${testcase.name} failed at ${path}:\n ${testcase.failure.message}`,
+                        raw_details: testcase.failure.$t,
                     });
                 }
 
