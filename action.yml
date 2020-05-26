@@ -19,6 +19,10 @@ inputs:
     description: 'max number of failed tests to include'
     require: true
     default: 10
+  annotationJobName:
+    description: 'the name of the job/check to attach annotations to'
+    require: true
+    default: 'build'
   testSrcPath: 
     description: 'path to test source'
     required: true

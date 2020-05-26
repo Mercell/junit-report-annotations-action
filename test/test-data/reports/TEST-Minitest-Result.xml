@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Minitest::Result" tests="2" time="0.00027097" failures="1" errors="0" skipped="0" assertions="2" timestamp="2020-05-26T10:21:39+00:00">
+  <testcase name="test_that_it_has_a_version_number" time="1.2639007763937116e-05" assertions="1">
+  </testcase>
+  <testcase name="test_that_it_fails" time="2.5411005481146276e-05" assertions="1">
+    <failure type="Minitest::Assertion" message="Expected false to be truthy.">
+Expected false to be truthy. (Minitest::Assertion)
+/hostroot/gems/datahighway/test/datahighway_test.rb:9    </failure>
+  </testcase>
+  <system-err>
+/usr/local/rvm/gems/ruby-2.2.1/gems/ci_reporter_minitest-1.0.0/lib/ci/reporter/minitest.rb:80: warning: instance variable @current_suite_class not initialized
+/usr/local/rvm/gems/ruby-2.2.1/gems/ci_reporter_minitest-1.0.0/lib/ci/reporter/minitest.rb:114: warning: instance variable @current_suite not initialized
+  </system-err>
+</testsuite>

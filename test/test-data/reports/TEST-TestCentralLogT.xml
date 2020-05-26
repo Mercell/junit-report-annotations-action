@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TestCentralLogT" tests="48" time="5.255309513" failures="1" errors="0" skipped="0" assertions="94" timestamp="2020-05-26T12:09:58+00:00">
+  <testcase name="test_central_log_procurement_check_source_indexing_today_not_part_of_release_dates_does_not_emit_event" time="0.010029953991761431" assertions="2">
+  </testcase>
+  <testcase name="test_central_event_z_943" time="0.011494039004901424" assertions="1">
+  </testcase>
+  <testcase name="test_central_log_mmrl_total_run_time" time="0.004112672002520412" assertions="2">
+  </testcase>
+  <testcase name="test_central_event_z_80" time="0.00938245200086385" assertions="1">
+  </testcase>
+  <testcase name="test_central_event_z_942" time="0.003642015013610944" assertions="1">
+  </testcase>
+  <testcase name="test_central_event_z_851" time="0.0046379429986700416" assertions="1">
+  </testcase>
+  <testcase name="test_central_log_procurement_check_source_indexing_today_part_of_non_release_dates_does_not_emit_event" time="0.010211562999757007" assertions="2">
+  </testcase>
+  <testcase name="test_data_dog_partial_eval_lambda_test" time="0.007739954991848208" assertions="3">
+  </testcase>
+  <testcase name="test_central_event_z_809" time="0.0036486309982137755" assertions="1">
+  </testcase>
+  <testcase name="test_central_log_procurement_check_source_indexing_holidays_visma" time="0.005214819000684656" assertions="2">
+  </testcase>
+  <testcase name="test_central_log_procurement_check_source_indexing_solr_has_docs_does_not_emit_event" time="0.005789517002995126" assertions="2">
+  </testcase>
+  <testcase name="test_central_event_z_36" time="0.005347875005099922" assertions="2">
+  </testcase>
+  <testcase name="test_central_log_mmrl_stats" time="0.005745192000176758" assertions="11">
+  </testcase>
+  <testcase name="test_central_event_z_38" time="0.005027564009651542" assertions="2">
+  </testcase>
+  <testcase name="test_central_event_z_33" time="0.004945765002048574" assertions="1">
+  </testcase>
+  <testcase name="test_central_event_z_37" time="0.0045309770066523924" assertions="1">
+  </testcase>
+  <testcase name="test_central_event_z_31" time="0.0030963500030338764" assertions="2">
+  </testcase>
+  <testcase name="test_central_log_controller_action_stats" time="0.004102412000065669" assertions="2">
+  </testcase>
+  <testcase name="test_central_event_a_3" time="0.0049380609998479486" assertions="1">
+  </testcase>
+  <testcase name="test_central_event_z_39" time="0.003631611994933337" assertions="2">
+  </testcase>
+  <testcase name="test_central_log_query_logging_to_datahighway_fails_if_wrong_format" time="0.004130430999794044" assertions="1">
+    <failure type="Minitest::Assertion" message="[ArgumentError] exception expected, not...">
+[ArgumentError] exception expected, not
+Class: &lt;Avro::IO::AvroTypeError&gt;
+Message: &lt;"The datum nil is not an example of schema \"string\""&gt;
+---Backtrace---
+/usr/local/rvm/gems/ruby-2.2.1/gems/avro-1.9.2/lib/avro/io.rb:524:in `write_data'
+/usr/local/rvm/gems/ruby-2.2.1/gems/avro-1.9.2/lib/avro/io.rb:594:in `block in write_record'
+/usr/local/rvm/gems/ruby-2.2.1/gems/avro-1.9.2/lib/avro/io.rb:593:in `each'
+/usr/local/rvm/gems/ruby-2.2.1/gems/avro-1.9.2/lib/avro/io.rb:593:in `write_record'
+/usr/local/rvm/gems/ruby-2.2.1/gems/avro-1.9.2/lib/avro/io.rb:542:in `write_data'
+/usr/local/rvm/gems/ruby-2.2.1/gems/avro-1.9.2/lib/avro/io.rb:517:in `write'
+/hostroot/rubylicitio/datahighway/datahighway.rb:57:in `avro_encode'
+/hostroot/rubylicitio/datahighway/datahighway.rb:71:in `deliver_message'
+/hostroot/rubylicitio/datahighway/datahighway.rb:78:in `deliver_message'
+/hostroot/rubylicitio/utils/central_log.rb:687:in `publish_to_datahighway'
+/hostroot/rubylicitio/utils/central_log.rb:637:in `central_log'
+/hostroot/rubylicitio/test/central_log_test.rb:501:in `block (2 levels) in test_central_log_query_logging_to_datahighway_fails_if_wrong_format'
+--------------- (Minitest::Assertion)
+/hostroot/rubylicitio/test/central_log_test.rb:500    </failure>
+  </testcase>
+  <testcase name="test_central_event_z_51" time="0.00318330799927935" assertions="1">
+  </testcase>
+  <testcase name="test_central_log_external_ingestion_stats" time="0.005398260007495992" assertions="2">
+  </testcase>
+  <testcase name="test_central_event_z_35" time="0.005540566009585746" assertions="1">
+  </testcase>
+  <testcase name="test_central_event_z_850" time="0.010668376009562053" assertions="1">
+  </testcase>
+  <testcase name="test_central_log_mmg_stats" time="0.006707079999614507" assertions="7">
+  </testcase>
+  <testcase name="test_central_log_mmg_query_process_time" time="0.004873219004366547" assertions="2">
+  </testcase>
+  <testcase name="test_central_log_query_logging_to_datahighway_without_brokers_does_not_deliver_but_prints_warning" time="0.004389174006064422" assertions="3">
+  </testcase>
+  <testcase name="test_central_log_procurement_check_source_indexing_holidays_doffin" time="0.005506539004272781" assertions="2">
+  </testcase>
+  <testcase name="test_central_log_procurement_check_source_indexing_ted" time="0.004506832992774434" assertions="2">
+  </testcase>
+  <testcase name="test_central_event_z_808" time="0.004018863997771405" assertions="1">
+  </testcase>
+  <testcase name="test_central_log_query_logging_to_datahighway_logs_error_if_wrong_format_and_logger_given" time="0.005781265994301066" assertions="5">
+  </testcase>
+  <testcase name="test_central_event_z_81" time="0.00469913799315691" assertions="1">
+  </testcase>
+  <testcase name="test_central_log_get_num_indexed_for_source_query_works" time="0.008830656995996833" assertions="1">
+  </testcase>
+  <testcase name="test_send" time="5.0061976950091776" assertions="1">
+  </testcase>
+  <testcase name="test_central_event_b_3" time="0.00442945200484246" assertions="1">
+  </testcase>
+  <testcase name="test_central_event_z_41" time="0.004295523001928814" assertions="1">
+  </testcase>
+  <testcase name="test_central_log_mmg_total_run_time" time="0.004279350003344007" assertions="2">
+  </testcase>
+  <testcase name="test_central_event_z_43" time="0.004024113004561514" assertions="1">
+  </testcase>
+  <testcase name="test_central_log_procurement_check_source_indexing_today_not_part_of_release_weekdays_does_not_emit_event" time="0.003804631996899843" assertions="2">
+  </testcase>
+  <testcase name="test_central_log_query_logging_to_datahighway_ignores_extra_fields" time="0.004004881993751042" assertions="2">
+  </testcase>
+  <testcase name="test_central_event_z_40" time="0.004255619991454296" assertions="1">
+  </testcase>
+  <testcase name="test_central_event_z_806" time="0.004204586992273107" assertions="1">
+  </testcase>
+  <testcase name="test_central_event_z_30" time="0.005944946999079548" assertions="1">
+  </testcase>
+  <testcase name="test_central_event_z_32" time="0.004496619993005879" assertions="2">
+  </testcase>
+  <testcase name="test_central_log_query_logging_to_datahighway" time="0.0043197939958190545" assertions="2">
+  </testcase>
+  <testcase name="test_central_log_procurement_check_source_indexing_solr_has_no_docs_emits_event" time="0.0042550020007183775" assertions="2">
+  </testcase>
+  <testcase name="test_data_dog" time="0.00394770001003053" assertions="3">
+  </testcase>
+  <system-out>
+#&lt;MockDog:0x00000003149e90&gt;
+#&lt;MockDog:0x00000002eccb68&gt;
+#&lt;MockDog:0x000000029a9118&gt;
+#&lt;MockDog:0x000000027609b0&gt;
+#&lt;MockDog:0x0000000511cd30&gt;
+#&lt;MockDog:0x00000005e55b50&gt;
+#&lt;MockDog:0x00000005c35398&gt;
+#&lt;MockDog:0x00000005bca228&gt;
+#&lt;MockDog:0x00000005b72730&gt;
+#&lt;MockDog:0x00000005b0dab0&gt;
+#&lt;MockDog:0x00000005a17a70&gt;
+#&lt;MockDog:0x000000059ab3e8&gt;
+#&lt;MockDog:0x0000000589c128&gt;
+#&lt;MockDog:0x000000057a8e38&gt;
+#&lt;MockDog:0x000000056fe988&gt;
+#&lt;MockDog:0x000000053cb1d0&gt;
+#&lt;MockDog:0x000000052bac50&gt;
+#&lt;MockDog:0x0000000411a8b0&gt;
+#&lt;MockDog:0x00000004018f98&gt;
+#&lt;MockDog:0x00000003e78c88&gt;
+#&lt;MockDog:0x00000003b0cbd0&gt;
+#&lt;MockDog:0x000000039cb0f0&gt;
+#&lt;MockDog:0x000000038b97c0&gt;
+#&lt;MockDog:0x0000000319b088&gt;
+  </system-out>
+</testsuite>
