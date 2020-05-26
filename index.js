@@ -56,13 +56,9 @@ const MINITEST_TEST_FILE_PATH_RE = new RegExp('\\(Minitest::Assertion\\)[^\/]*((
                     });
                 }
 
-                if(Array.isArray(testsuite.testcase)) {
-                    for(const testcase of testsuite.testcase) {
-                        await testFunction(testcase)
-                    }
-                }else {
-                    //single test
-                    await testFunction(testsuite.testcase)
+                let testCases = Array.isArray(testsuite.testcase) ? testsuite.testcase : [testsuite.testcase];
+                for (const testcase of testCases) {
+                    await testFunction(testcase)
                 }
             }
         }
