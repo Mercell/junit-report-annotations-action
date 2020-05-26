@@ -72,7 +72,8 @@ const MINITEST_TEST_FILE_PATH_RE = new RegExp('\\(Minitest::Assertion\\)[^\/]*((
     
         const check_run_id = res.data.check_runs.filter(check => check.name === annotationJobName)[0].id
     
-        const annotation_level = numFailed + numErrored > 0 ?'failure': 'notice';
+        const annotation_level = numFailed + numErrored > 0 ? 'failure' : 'notice';
+        const junitSummary = `Junit Results ran ${numTests} tests in ${testDuration} seconds. ${numErrored} Errored, ${numFailed} Failed, ${numSkipped} Skipped`;
         const annotation = {
             path: testSrcPath,
             start_line: 0,
@@ -80,7 +81,7 @@ const MINITEST_TEST_FILE_PATH_RE = new RegExp('\\(Minitest::Assertion\\)[^\/]*((
             start_column: 0,
             end_column: 0,
             annotation_level,
-            message: `Junit Results ran ${numTests} tests in ${testDuration} seconds. ${numErrored} Errored, ${numFailed} Failed, ${numSkipped} Skipped`,
+            message: junitSummary,
         };
 
         const update_req = {
@@ -88,7 +89,7 @@ const MINITEST_TEST_FILE_PATH_RE = new RegExp('\\(Minitest::Assertion\\)[^\/]*((
             check_run_id,
             output: {
                 title: "Junit Results",
-                summary: `Num passed etc`,
+                summary: junitSummary,
                 annotations: [annotation, ...annotations]
             }
         }
