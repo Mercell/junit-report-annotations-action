@@ -17,6 +17,9 @@ const MINITEST_TEST_FILE_PATH_RE = new RegExp('\\(Minitest::Assertion\\)[^\/]*((
         const annotationJobName = core.getInput('annotationJobName');
         const globber = await glob.create(testReportsGlob, {followSymbolicLinks: false});
 
+        const commitSha = github.context.sha || core.getInput('commit-sha');
+        const commitRepo = github.context.repo;
+
         let numTests = 0;
         let numSkipped = 0;
         let numFailed = 0;
@@ -24,6 +27,7 @@ const MINITEST_TEST_FILE_PATH_RE = new RegExp('\\(Minitest::Assertion\\)[^\/]*((
         let testDuration = 0;
 
         let annotations = [];
+        let testFailuresMarkdowns = [];
 
         for await (const file of globber.globGenerator()) {
             const data = await fs.promises.readFile(file);
@@ -54,6 +58,7 @@ const MINITEST_TEST_FILE_PATH_RE = new RegExp('\\(Minitest::Assertion\\)[^\/]*((
                         message: `Junit test ${testcase.name} failed at ${path}:\n ${testcase.failure.message}`,
                         raw_details: testcase.failure.$t,
                     });
+                    testFailuresMarkdowns.push(`Some markdown text: [I'm an inline-style link](https://github.com/Mercell/sd-datahighway/blob/37acd54bcc498dd3d484c3afade0af139536f360/test/datahighway_test.rb#L4)`)
                 }
 
                 let testCases = Array.isArray(testsuite.testcase) ? testsuite.testcase : [testsuite.testcase];
@@ -65,8 +70,8 @@ const MINITEST_TEST_FILE_PATH_RE = new RegExp('\\(Minitest::Assertion\\)[^\/]*((
 
         const octokit = new github.GitHub(accessToken);
         const req = {
-        ...github.context.repo,
-        ref: github.context.sha || core.getInput('commit-sha')
+        ...commitRepo,
+        ref: commitSha
         }
         const res = await octokit.checks.listForRef(req);
     
@@ -85,11 +90,12 @@ const MINITEST_TEST_FILE_PATH_RE = new RegExp('\\(Minitest::Assertion\\)[^\/]*((
         };
 
         const update_req = {
-            ...github.context.repo,
+            ...commitRepo,
             check_run_id,
             output: {
                 title: "Junit Results",
                 summary: junitSummary,
+                text: [junitSummary, ...testFailuresMarkdowns].join("\n\n"),
                 annotations: [annotation, ...annotations]
             }
         }
