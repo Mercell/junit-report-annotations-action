@@ -20,6 +20,8 @@ const MINITEST_TEST_FILE_PATH_RE = new RegExp('\\(Minitest::Assertion\\)[^\/]*((
         const commitSha = github.context.sha || core.getInput('commit-sha');
         const commitRepo = github.context.repo;
 
+        console.log(`commitRepo: ${commitRepo}, commitSha: ${commitSha}`);
+
         let numTests = 0;
         let numSkipped = 0;
         let numFailed = 0;
@@ -101,6 +103,7 @@ const MINITEST_TEST_FILE_PATH_RE = new RegExp('\\(Minitest::Assertion\\)[^\/]*((
         }
         await octokit.checks.update(update_req);
     } catch (error) {
+        console.log(error.message);
         core.setFailed(error.message);
     }
 })();
