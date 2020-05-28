@@ -78,7 +78,7 @@ const MINITEST_TEST_FILE_PATH_RE = new RegExp('\\(Minitest::Assertion\\)[^\/]*((
         }
         const res = await octokit.checks.listForRef(req);
     
-        const check_run_id = res.data.check_runs.shift;
+        const check_run_id = res.data.check_runs.shift();
         if (!check_run_id) {
             console.log(`Could not find a check for the job ${annotationJobName}, exiting early`);
             return;
