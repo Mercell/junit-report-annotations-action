@@ -20,7 +20,7 @@ const MINITEST_TEST_FILE_PATH_RE = new RegExp('\\(Minitest::Assertion\\)[^\/]*((
         const commitSha = github.context.sha || core.getInput('commit-sha');
         const commitRepo = github.context.repo;
 
-        console.log(`commitRepo: ${commitRepo}, commitSha: ${commitSha}`);
+        console.log(`commitRepo: ${JSON.stringify(commitRepo)}, commitSha: ${commitSha}`);
 
         let numTests = 0;
         let numSkipped = 0;
