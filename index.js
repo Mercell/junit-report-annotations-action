@@ -73,11 +73,16 @@ const MINITEST_TEST_FILE_PATH_RE = new RegExp('\\(Minitest::Assertion\\)[^\/]*((
         const octokit = new github.GitHub(accessToken);
         const req = {
         ...commitRepo,
-        ref: commitSha
+        ref: commitSha,
+        checkName: annotationJobName
         }
         const res = await octokit.checks.listForRef(req);
     
-        const check_run_id = res.data.check_runs.filter(check => check.name === annotationJobName)[0].id
+        const check_run_id = res.data.check_runs.shift;
+        if (!check_run_id) {
+            console.log(`Could not find a check for the job ${annotationJobName}, exiting early`);
+            return;
+        }
     
         const annotation_level = numFailed + numErrored > 0 ? 'failure' : 'notice';
         const junitSummary = `Junit Results ran ${numTests} tests in ${testDuration} seconds. ${numErrored} Errored, ${numFailed} Failed, ${numSkipped} Skipped`;
